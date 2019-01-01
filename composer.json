@@ -1,0 +1,14 @@
+{
+    "name": "dahmaneaissi/dbbackup",
+    "description": "DB Backup",
+    "authors": [
+        {
+            "name": "Dahmane Aissi",
+            "email": "aissi.dahmane@gmail.com"
+        }
+    ],
+    "require": {
+        "ifsnop/mysqldump-php" : "2.6",
+        "dg/ftp-php" : "1.2"
+    }
+}
