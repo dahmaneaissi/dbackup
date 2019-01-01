@@ -1,4 +1,4 @@
 .idea/*
 /vendor/
-storage/work/*
+/app/storage/work/*
 config.json
