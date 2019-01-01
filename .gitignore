@@ -2,3 +2,4 @@
 /vendor/
 /app/storage/work/*
 config.json
+dploy.yaml
