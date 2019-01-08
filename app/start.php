@@ -1,9 +1,9 @@
 <?php
-require "../vendor/autoload.php";
+require __DIR__.'/../vendor/autoload.php';
 
 use Ifsnop\Mysqldump as IMysqldump;
 
-$content = file_get_contents( '../config.json' );
+$content = file_get_contents( __DIR__.'/../config.json' );
 $data = json_decode( $content );
 
 $date = date('Y-m-d');
@@ -17,7 +17,7 @@ foreach ( $data->mysql->databases as $db )
     try {
         $dump = new IMysqldump\Mysqldump( 'mysql:host=' . $data->mysql->hostname . ';dbname=' . $db->dbname , $db->user, $db->password , array('compress' => IMysqldump\Mysqldump::GZIP ));
         $file_name = $db->dbname  . '_' . $date .'.gz';
-        $storage_dir = 'storage/work/';
+        $storage_dir = __DIR__ . '/storage/work/';
         $dump->start($storage_dir . $file_name );
         echo 'Géneration du dump de la db '. $db->dbname .' effectuée.' . PHP_EOL;
         $ftp->put( $file_name, $storage_dir . $file_name , FTP_BINARY) ;
